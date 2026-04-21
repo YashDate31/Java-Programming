@@ -1,0 +1,27 @@
+name: Java Compile Check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Compile Manual Java Sources
+        shell: bash
+        run: |
+          find Manual -name "*.java" > files_to_compile.txt
+          javac -encoding UTF-8 @files_to_compile.txt
