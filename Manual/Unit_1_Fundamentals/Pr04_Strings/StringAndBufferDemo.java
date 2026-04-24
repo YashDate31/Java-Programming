@@ -1,5 +1,3 @@
-package Manual.Unit_1_Fundamentals.Pr04_Strings;
-
 public class StringAndBufferDemo {
     public static void main(String[] args) {
         String name = "Java Programming";
@@ -9,9 +7,12 @@ public class StringAndBufferDemo {
 
         StringBuffer buffer = new StringBuffer("MSBTE");
         buffer.append(" Lab");
+        System.out.println(buffer);
         buffer.insert(0, "Java ");
+        System.out.println("insert:--"+ buffer);
+
         buffer.replace(0, 4, "Core");
         System.out.println("StringBuffer result: " + buffer);
-        System.out.println("Reversed: " + new StringBuffer(buffer).reverse());
+        System.out.println("Reversed: " + buffer.reverse());
     }
 }

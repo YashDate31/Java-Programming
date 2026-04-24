@@ -1,5 +1,3 @@
-package Manual.Unit_1_Fundamentals.Pr05_ArraysAndVectors;
-
 import java.util.Vector;
 
 public class ArraysAndVectorsDemo {
@@ -11,14 +9,14 @@ public class ArraysAndVectorsDemo {
         }
         System.out.println("Array total: " + total);
 
-        Vector<String> subjects = new Vector<>();
+        Vector subjects = new Vector(1);
         subjects.add("Java");
         subjects.add("DBMS");
+        subjects.addElement(new Integer(100));
+        subjects.insertElementAt(1,1);
         subjects.add("CN");
 
         System.out.println("Vector elements:");
-        for (String subject : subjects) {
-            System.out.println(subject);
-        }
+       System.out.print(subjects);
     }
 }
