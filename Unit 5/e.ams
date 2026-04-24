@@ -1,0 +1,42 @@
+.model small
+.stack 100h
+
+.data
+array db 30h,10h,40h,20h
+count db 04h
+
+.code
+start:
+mov ax,@data
+mov ds,ax
+
+mov cl, count
+dec cl              ; outer loop
+
+outer:
+    lea si, array
+    mov ch, cl      ; inner loop counter
+
+inner:
+    mov al, [si]
+    mov bl, [si+1]
+
+    cmp al, bl
+    jbe skip        ; if AL ≤ BL → correct order
+
+    ; swap
+    mov [si], bl
+    mov [si+1], al
+
+skip:
+    inc si
+    dec ch
+    jnz inner
+
+    dec cl
+    jnz outer
+
+mov ah,4ch
+int 21h
+
+end start
